@@ -3,10 +3,14 @@ use sooni_group;
 # 신규방식 테스트 - 2024.03.18
 
 # 일일 수익 데이터 조회
+select *
+from daily_income;
+
+# 총 데이터 개수 조회
 select count(*)
 from daily_income;
 
-# 특정 기간 내 수익 데이터 총합 도출
+# 특정 기간 내 비제이별  수익 데이터 총합 도출
 select id, sum(poong) as poong_sum
 from daily_income
 where date between '2024-02-08' and '2024-03-07'
@@ -20,4 +24,3 @@ from daily_income
 where date between '2024-02-08' and '2024-03-07'
 group by id) d
 on b.id=d.id;
-
