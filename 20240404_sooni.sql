@@ -9,7 +9,9 @@ desc bj;
 select * from bj;
 
 # daily_income 테이블 date 컬럼 날짜 형식 지정
+alter table daily_income modify column id varchar(30);
 alter table daily_income modify column date date;
+alter table daily_income add unique (id, date);
 
 desc daily_income;
 
@@ -59,11 +61,11 @@ from bj b
 left join (
 select *
 from daily_income
-where date = '240401') d
+where date = '240402') d
 on b.id=d.id;
 
 select name, id
 from bj
-where name in ('SlowVita','[DM]퀸다미','깅예솔');
+where name like '%민서율%';
 
--- insert into daily_income values('kunbams', '2024-04-01', 0), ('damikim','2024-04-01',0),('yunhee1222','2024-04-01',0);
+-- insert into daily_income values('b24ip7','2024-04-02', 0);
